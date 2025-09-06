@@ -12,7 +12,7 @@ def set_alarm(alarm_time):
 
     is_running = True
     while is_running:
-        current_time = time.strftime("%I:%M:%S %p")
+        current_time = time.strftime("%I:%M %p")
         print(current_time)
         time.sleep(1)
 
@@ -39,9 +39,9 @@ def set_alarm(alarm_time):
                     elif extend == 'n':
                         pygame.mixer.music.stop()
                         is_running= False
-        else:
+        elif alarm_time<current_time:
             print(f'The ALARM TIME-{alarm_time} cannot be less than CURRENT TIME-{current_time}')  
-            is_running= False          
+            is_running= False   
 if __name__ == '__main__':
-    alarm_time= input('enter the alarm time (HH:MM:SS AM/PM): ').upper()
+    alarm_time= input('enter the alarm time (HH:MM AM/PM): ').upper()
     set_alarm(alarm_time)
